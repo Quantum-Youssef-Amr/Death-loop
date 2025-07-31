@@ -38,7 +38,7 @@ public class PatientSystem : MonoBehaviour {
 
         OnStatsChanged?.Invoke(m_currentStats);
 
-        if (m_currentStats.TimeTillBrainDamage <= 0f || m_currentStats.HeartRate <= 0f || m_currentStats.OxygenLevel <= 0f || m_currentStats.BloodPressure <= 0f) {
+        if (!m_currentStats.IsAlive()) {
             OnPatientDeath?.Invoke();
         }
     }
