@@ -15,6 +15,7 @@ public struct PatientStats {
     public float DefibrillatorSuccessChance;
 
 
+    private const float HIGH_BLOOD_PRESSURE_THRESHOLD = 190f;
     private const float LETHAL_BLOOD_PRESSURE = 250f;
     private const float LETHAL_HEART_RATE = 200f;
     private const float LETHAL_OXYGEN_LEVEL = 100f;
@@ -22,6 +23,10 @@ public struct PatientStats {
     public bool IsAlive() {
         return TimeTillBrainDamage > 0f && HeartRate > 0f && OxygenLevel > 0f && BloodPressure > 0f
             && HeartRate <= LETHAL_HEART_RATE && BloodPressure <= LETHAL_BLOOD_PRESSURE && OxygenLevel <= LETHAL_OXYGEN_LEVEL;
+    }
+
+    public bool IsBloodPressureHigh() {
+        return BloodPressure > HIGH_BLOOD_PRESSURE_THRESHOLD;
     }
 
     public static PatientStats operator +(PatientStats a, PatientStats b) {
