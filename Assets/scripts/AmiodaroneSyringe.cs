@@ -7,6 +7,7 @@ public class AmiodaroneSyringe : MonoBehaviour
     [SerializeField] float heartRateLevel = 50;
     private static event Action<float> AmiodaroneSyringeInjection;
     private static event Action<float> HeartRateChange;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter2D(Collider2D collision)
     {
