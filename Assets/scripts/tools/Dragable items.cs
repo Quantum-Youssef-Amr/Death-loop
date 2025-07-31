@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 public class Dragableitems : MonoBehaviour
 {
     private Rigidbody2D _r;
+    private void Start()
+    {
+        _r = gameObject.GetComponent<Rigidbody2D>();
+    }
     void OnMouseDrag()
     {
         if ((Camera.main.ScreenToWorldPoint(Mouse.current.position.value) + new Vector3(0, 0, -10) - transform.position).magnitude > 0.5f)
