@@ -25,7 +25,7 @@ public class PatientDebug : MonoBehaviour {
         }
 
         GUILayout.BeginArea(new Rect(10, 10, 300, 200));
-        GUILayout.Box($"Current Patient Stats: {m_stats}", m_leftAlignedStyle, GUILayout.ExpandHeight(true));
+        GUILayout.Box($"Current Patient Stats:\n{m_stats}", m_leftAlignedStyle, GUILayout.ExpandHeight(true));
         GUILayout.EndArea();
     }
 }
