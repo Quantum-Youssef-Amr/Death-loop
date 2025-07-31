@@ -38,7 +38,7 @@ public class AdrenalineSyringe : MonoBehaviour
     }
     void HeartRateChangeValue(float value)
     {
-        Debug.Log(" Patient Heart Rate is Up 20 %"+value);
+        Debug.Log(" Patient Heart Rate is Up "+ value +" % ");
     }
     private void OnEnable()
     {
