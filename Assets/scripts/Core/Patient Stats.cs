@@ -4,10 +4,13 @@ using UnityEngine;
 
 [Serializable]
 public struct PatientStats {
+    [Header("Critical Stats")]
     public float TimeTillBrainDamage;
     public float HeartRate;
     public float BloodPressure;
     public float OxygenLevel;
+
+    [Header("Modifiers")]
     public float OxygenLossRate;
     public float DefibrilattorSuccessChance;
 
