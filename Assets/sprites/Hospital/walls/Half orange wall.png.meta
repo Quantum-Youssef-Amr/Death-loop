@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Half orange wall_0: 6033981908286269688
+      Half orange wall_1: 7278870730397705977
+      Half orange wall_2: 5639624581353359669
+      Half orange wall_3: 5843365588293933538
+      Half orange wall_4: 8307026481518299587
+      Half orange wall_5: -6268899328069494286
+      Half orange wall_6: 1918777910457252179
+      Half orange wall_7: 2779145213910873020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

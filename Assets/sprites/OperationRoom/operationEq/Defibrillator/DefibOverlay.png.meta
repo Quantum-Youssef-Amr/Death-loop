@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DefibOverlay_0: -1649777699933905433
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

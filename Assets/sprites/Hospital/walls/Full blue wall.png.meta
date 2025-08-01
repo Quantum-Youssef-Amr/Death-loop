@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Full blue wall_0: 3483842435595270044
+      Full blue wall_1: 1589387673520406084
+      Full blue wall_2: -370987361958974334
+      Full blue wall_3: -2925559908003959995
+      Full blue wall_4: -5022788276761291768
+      Full blue wall_5: 5568116570031704367
+      Full blue wall_6: -3789503494338561762
+      Full blue wall_7: -1861515697010746849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

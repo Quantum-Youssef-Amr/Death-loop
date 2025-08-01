@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Half blue wall_0: -1113178119086042432
+      Half blue wall_1: -4565272149705691051
+      Half blue wall_2: 7933368725428203786
+      Half blue wall_3: 2203254346434870617
+      Half blue wall_4: 3699033167661278967
+      Half blue wall_5: 6430174096933216236
+      Half blue wall_6: -1894842184346397115
+      Half blue wall_7: 45373617569547706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

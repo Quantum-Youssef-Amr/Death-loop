@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hospital wall set_0: -4693256106135911107
+      Hospital wall set_1: -1487207827027648903
+      Hospital wall set_2: -411636850786406520
+      Hospital wall set_3: -9021229513323984388
+      Hospital wall set_4: -1543712487489962035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
