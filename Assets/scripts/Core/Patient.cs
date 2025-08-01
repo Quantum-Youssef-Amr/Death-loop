@@ -3,21 +3,31 @@ using UnityEngine;
 public class Patient : MonoBehaviour {
     [SerializeField] private PatientStats m_initialStats;
 
-    private void Start() {
+    private void Start()
+    {
         // TODO: Initialize with random stats in each loop
+        m_initialStats = new PatientStats(120, 80, 100);
+        Central_gate.OnGameLoop += setup;
+
+        Central_gate.OnGameLoop?.Invoke();
+    }
+
+    private void setup()
+    {
         PatientSystem.SceneInstance.InitializeStats(m_initialStats);
     }
 
-    private void OnEnable() {
-        PatientSystem.SceneInstance.OnPatientDeath += Die;
-        PatientSystem.SceneInstance.OnPatientSaved += Revive;
+    private void OnEnable()
+    {
+        Central_gate.OnPatientDeath += Die;
+        Central_gate.OnPatientSaved += Revive;
     }
 
     private void OnDisable() {
         if (PatientSystem.SceneInstance == null) return;
 
-        PatientSystem.SceneInstance.OnPatientDeath -= Die;
-        PatientSystem.SceneInstance.OnPatientSaved -= Revive;
+        Central_gate.OnPatientDeath -= Die;
+        Central_gate.OnPatientSaved -= Revive;
     }
 
     private void Die() {

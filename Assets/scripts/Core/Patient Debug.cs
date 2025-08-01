@@ -4,13 +4,13 @@ public class PatientDebug : MonoBehaviour {
     private PatientStats m_stats;
 
     private void OnEnable() {
-        PatientSystem.SceneInstance.OnStatsChanged += SetStats;
+         Central_gate.OnPatientStatsChanged += SetStats;
     }
 
     private void OnDisable() {
         if (PatientSystem.SceneInstance == null) return;
 
-        PatientSystem.SceneInstance.OnStatsChanged -= SetStats;
+        Central_gate.OnPatientStatsChanged -= SetStats;
     }
 
     private void SetStats(PatientStats stats) {

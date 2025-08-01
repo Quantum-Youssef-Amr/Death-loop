@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PassiveBrainDamage : MonoBehaviour {
     private void OnEnable() {
-        PatientSystem.SceneInstance.OnPatientDeath += Stop;
-        PatientSystem.SceneInstance.OnPatientSaved += Stop;
+        Central_gate.OnPatientDeath += Stop;
+        Central_gate.OnPatientSaved += Stop;
     }
 
     private void OnDisable() {
         if (PatientSystem.SceneInstance == null) return;
 
-        PatientSystem.SceneInstance.OnPatientDeath -= Stop;
-        PatientSystem.SceneInstance.OnPatientSaved -= Stop;
+        Central_gate.OnPatientDeath -= Stop;
+        Central_gate.OnPatientSaved -= Stop;
     }
 
     private void Stop() {
@@ -21,6 +21,6 @@ public class PassiveBrainDamage : MonoBehaviour {
         if (!enabled) return;
 
         var deltaStats = new PatientStats { TimeTillBrainDamage = -Time.deltaTime };
-        PatientSystem.SceneInstance.OnStatsAdjusted?.Invoke(deltaStats);
+        Central_gate.OnPatientStatsAdjusted?.Invoke(deltaStats);
     }
 }
