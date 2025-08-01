@@ -30,7 +30,6 @@ public class DialogComponont : MonoBehaviour
     {
         if (!playerInside) return;
         if (DialogManager.Instance.IsDialogActive()) return;
-        Debug.Log(Input.GetKeyDown(keyToPress));
         if (Input.GetKeyDown(keyToPress))
         {
             DialogManager.Instance.SetDialogActive(lines, NpcName);

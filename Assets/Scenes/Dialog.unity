@@ -426,6 +426,8 @@ MonoBehaviour:
   lines:
   - he say that
   - he cant wait to do it
+  keyToPress: 101
+  TagToDetect: Player
 --- !u!61 &497515683
 BoxCollider2D:
   m_ObjectHideFlags: 0
