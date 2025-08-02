@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 497515682}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,8 +426,6 @@ MonoBehaviour:
   lines:
   - he say that
   - he cant wait to do it
-  keyToPress: 101
-  TagToDetect: Player
 --- !u!61 &497515683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -863,6 +861,7 @@ GameObject:
   - component: {fileID: 1686365120}
   - component: {fileID: 1686365119}
   - component: {fileID: 1686365122}
+  - component: {fileID: 1686365123}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Player
@@ -1013,6 +1012,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1686365123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686365118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962050a01daf33e46a57b2014d7ac1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToPress: 101
+  NpcTag: Npc
 --- !u!1 &1842917473
 GameObject:
   m_ObjectHideFlags: 0
