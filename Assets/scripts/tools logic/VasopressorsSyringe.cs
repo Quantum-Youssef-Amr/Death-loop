@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 public class VasopressorsSyringe : Syringe
 {
+    public float BloodPressureChangeAmount;
     private PatientStats ps;
     void Start()
     {
@@ -15,21 +16,27 @@ public class VasopressorsSyringe : Syringe
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_canBeUsed) return;
         if (collision.CompareTag("Patient"))
         {
-            Central_gate.VasopressorsSyringeUseed++;
             Inject(heartRateChangeAmount);
             EffectTimer();
+            GetComponent<DragableItem>()._canMove = false;
+            GetComponent<Animation>().Play();
         }
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     public override void Inject(float value)
     {
         Central_gate.OnVasopressorsSyringeUse?.Invoke(value);
         Central_gate.OnPatientStatsAdjusted?.Invoke(new PatientStats
-        { 
-            HeartRate = heartRateChangeAmount
+        {
+            HeartRate = heartRateChangeAmount,
+            BloodPressure = BloodPressureChangeAmount
         });
     }
     public override void EffectTimer()
@@ -49,10 +56,6 @@ public class VasopressorsSyringe : Syringe
                 HeartRate = TimerAdd
             });
         }
-    }
-    public override void CanUse()
-    {
-        _canBeUsed = true;
     }
 
 }

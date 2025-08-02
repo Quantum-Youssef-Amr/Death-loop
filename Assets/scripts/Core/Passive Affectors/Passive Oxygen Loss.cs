@@ -5,8 +5,8 @@ public class PassiveOxygenLoss : MonoBehaviour {
     private bool stat;
     private void OnEnable()
     {
-        Central_gate.OnPatientDeath += Stop;
-        Central_gate.OnPatientSaved += Stop;
+        // Central_gate.OnPatientDeath += Stop;
+        // Central_gate.OnPatientSaved += Stop;
 
         Central_gate.BVMStat += setEnable;
 
@@ -20,8 +20,8 @@ public class PassiveOxygenLoss : MonoBehaviour {
     private void OnDisable() {
         if (PatientSystem.SceneInstance == null) return;
 
-        Central_gate.OnPatientDeath -= Stop;
-        Central_gate.OnPatientSaved -= Stop;
+        // Central_gate.OnPatientDeath -= Stop;
+        // Central_gate.OnPatientSaved -= Stop;
     }
 
     private void Stop() {

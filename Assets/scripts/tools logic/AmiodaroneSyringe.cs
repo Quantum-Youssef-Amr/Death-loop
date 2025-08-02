@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 public class AmiodaroneSyringe : Syringe
 {
+    public float DefibChangeAmount;
     private PatientStats ps;
     void Start()
     {
@@ -15,21 +16,27 @@ public class AmiodaroneSyringe : Syringe
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_canBeUsed) return;
-        if (collision.CompareTag("Patient"))
+        if (collision.gameObject.CompareTag("Patient"))
         {
-            Central_gate.AmiodaroneSyringeUsed++;
             Inject(heartRateChangeAmount);
             EffectTimer();
+            GetComponent<DragableItem>()._canMove = false;
+            GetComponent<Animation>().Play();
         }
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     public override void Inject(float value)
     {
         Central_gate.OnAmiodaroneSyringeUse?.Invoke(value);
         Central_gate.OnPatientStatsAdjusted?.Invoke(new PatientStats
-        { 
-            HeartRate = heartRateChangeAmount
+        {
+            HeartRate = PatientSystem.Stats.getCurrentHeartRate() > 0 ? heartRateChangeAmount : 0,
+            DefibrillatorSuccessChance = DefibChangeAmount
         });
     }
 
@@ -50,10 +57,5 @@ public class AmiodaroneSyringe : Syringe
                 TimeTillBrainDamage = TimerAdd
             });
         }
-    }
-
-    public override void CanUse()
-    {
-        _canBeUsed = true;
     }
 }

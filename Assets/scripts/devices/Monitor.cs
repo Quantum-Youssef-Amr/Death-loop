@@ -25,6 +25,7 @@ public class Monitor : MonoBehaviour
         else
         {
             HRAnimation.Stop();
+            HRAnimation.Sample();
         }
 
         if (BloodPrusser.fillAmount > 0.8 || BloodPrusser.fillAmount < 0.2)
@@ -34,6 +35,7 @@ public class Monitor : MonoBehaviour
         else
         {
             BPAnimation.Stop();
+            BPAnimation.Sample();
         }
 
         if (OxygenLevel.fillAmount > 0.8 || OxygenLevel.fillAmount < 0.2)
@@ -43,6 +45,7 @@ public class Monitor : MonoBehaviour
         else
         {
             OLAnimation.Stop();
+            OLAnimation.Sample();
         }
 
     }

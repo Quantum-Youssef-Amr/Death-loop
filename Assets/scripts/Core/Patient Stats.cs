@@ -12,7 +12,7 @@ public struct PatientStats {
     public float OxygenLossRate;
     public float DefibrillatorSuccessChance;
 
-    public PatientStats(int HeartRate, float BloodPressure, float OxygenLevel, float TimeTillBrainDamage = 120f, float OxygenLossRate = 2f, float DefibrillatorSuccessChance = 0.4f)
+    public PatientStats(int HeartRate, float BloodPressure, float OxygenLevel, float TimeTillBrainDamage = 120f, float OxygenLossRate = 2f, float DefibrillatorSuccessChance = 0.8f)
     {
         this.TimeTillBrainDamage = TimeTillBrainDamage;
         this.HeartRate = HeartRate;
@@ -28,6 +28,7 @@ public struct PatientStats {
     public const float HIGH_BLOOD_PRESSURE_THRESHOLD = 190f;
     public const float LOW_BLOOD_PRESSURE = 90f;
     public const float LETHAL_OXYGEN_LEVEL = 200f;
+    public const float LOW_OXYGEN_LEVEL = 0f;
     public const int LETHAL_HEART_RATE = 200;
     public const int HIGH_HEART_RATE = 150;
     public const int LOW_HEART_RATE = 70;
@@ -43,7 +44,7 @@ public struct PatientStats {
     }
     public bool IsHeartUpperCritical()
     {
-        return (float)HeartRate / LETHAL_HEART_RATE > 0.5f; ;
+        return (float)HeartRate / LETHAL_HEART_RATE > 0.5f;
     }
 
     public bool DefibrillatorWorked()
@@ -99,6 +100,10 @@ public struct PatientStats {
         return LOW_BLOOD_PRESSURE;
     }
 
+    public float getlowOxgenLevel()
+    {
+        return LOW_OXYGEN_LEVEL;
+    }
     public void SetHeartRate(int value)
     {
         HeartRate = value;
@@ -138,7 +143,7 @@ public struct PatientStats {
         BloodPressure = Mathf.Clamp(BloodPressure, 0f, LETHAL_BLOOD_PRESSURE);
         OxygenLevel = Mathf.Clamp(OxygenLevel, 0f, LETHAL_OXYGEN_LEVEL);
         OxygenLossRate = Mathf.Max(0f, OxygenLossRate);
-        DefibrillatorSuccessChance = Mathf.Min(DefibrillatorSuccessChance, 100f);
+        DefibrillatorSuccessChance = Mathf.Min(DefibrillatorSuccessChance, 1f);
     }
 
     public override string ToString() {

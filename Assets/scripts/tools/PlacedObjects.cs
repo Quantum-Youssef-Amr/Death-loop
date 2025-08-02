@@ -23,6 +23,11 @@ public class PlacedObjects : MonoBehaviour
     {
         _t.rotation = Quaternion.Lerp(_t.rotation, Quaternion.Euler(0, 0, Mathf.Clamp(Vector2.SignedAngle(UpDiraction, _r.position - lastpos), -MaxTilte, MaxTilte)), 10f * Time.deltaTime);
         lastpos = _r.position;
+
+        if (target && !target.gameObject.activeSelf && !Moving && _r.position != startPos)
+        {
+            tostartpos();
+        }
     }
 
     void OnMouseDrag()

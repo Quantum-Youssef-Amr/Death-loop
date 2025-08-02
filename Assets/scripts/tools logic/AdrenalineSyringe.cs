@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 public class AdrenalineSyringe : Syringe
 {
+    public float BloodPressureChangeAmount;
     private PatientStats ps;
 
     void Start()
@@ -16,20 +17,27 @@ public class AdrenalineSyringe : Syringe
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_canBeUsed) return;
         if (collision.CompareTag("Patient"))
         {
-            Central_gate.AdrenalineSyringeUsed++;
             Inject(heartRateChangeAmount);
             EffectTimer();
+            GetComponent<DragableItem>()._canMove = false;
+            GetComponent<Animation>().Play();
         }
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
     public override void Inject(float value)
     {
         Central_gate.OnAdrenalineSyringeUse?.Invoke(value);
         Central_gate.OnPatientStatsAdjusted?.Invoke(new PatientStats
-        { 
-            HeartRate = heartRateChangeAmount
+        {
+            HeartRate = PatientSystem.Stats.getCurrentHeartRate() > 0 ? heartRateChangeAmount : 0,
+            BloodPressure = BloodPressureChangeAmount
         });
     }
 
@@ -50,10 +58,5 @@ public class AdrenalineSyringe : Syringe
                 TimeTillBrainDamage = TimerAdd
             });
         }
-    }
-
-    public override void CanUse()
-    {
-        _canBeUsed = true;   
     }
 }
